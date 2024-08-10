@@ -1,0 +1,11 @@
+<!-- app/views/prototypes/confirm_delete.html.erb -->
+<main class="main">
+  <div class="inner">
+    <h1>本当に削除しますか？</h1>
+    <p>この操作は取り消せません。</p>
+    <%= form_with(url: prototype_path(@prototype), method: :delete, local: true) do %>
+      <%= submit_tag '削除する', class: 'btn btn-danger' %>
+    <% end %>
+    <%= link_to 'キャンセル', prototype_path(@prototype), class: 'btn btn-secondary' %>
+  </div>
+</main>

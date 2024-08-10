@@ -1,0 +1,42 @@
+<!-- app/views/prototypes/index.html.erb -->
+<div class="greeting">
+  <% if user_signed_in? %>
+    <p>こんにちは、<%= link_to current_user.name, user_path(current_user), class: 'greeting__link' %>さん</p>
+  <% else %>
+    <p>こんにちは、ゲストさん</p>
+  <% end %>
+</div>
+<div class="contents row card__wrapper">
+  <% @prototypes.each do |prototype| %>
+    <div class="content_post card">
+      <div class="card__img">
+        <% if prototype.image.attached? %>
+          <%= image_tag prototype.image, class: 'prototype-image' %> <!-- クラスを追加 -->
+        <% else %>
+          <img src="/path/to/placeholder-image.png" alt="Placeholder" class="prototype-image"> <!-- クラスを追加 -->
+        <% end %>
+      </div>
+      <div class="card__body">
+        <p class="card__title"><%= link_to prototype.title, prototype_path(prototype) %></p>
+        <p class="card__summary"><%= prototype.catch_copy %></p>
+        <span class="card__user">
+          <% if prototype.user.present? %>
+            <%= link_to prototype.user.name, user_path(prototype.user) %>
+          <% else %>
+            <p>User not found for prototype: <%= prototype.title %></p>
+          <% end %>
+        </span>
+        <% if user_signed_in? && prototype.user == current_user %>
+          <div class="prototype__manage">
+            <div class="prototype__btn">
+              <%= link_to '編集', edit_prototype_path(prototype), class: 'prototype__link' %>
+            </div>
+            <div class="prototype__btn">
+              <%= link_to '削除', prototype_path(prototype), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'prototype__link' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

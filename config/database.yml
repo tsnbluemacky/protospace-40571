@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+
+development:
+  <<: *default
+  database: protospace_40571_development
+
+test:
+  <<: *default
+  database: protospace_40571_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>  # Renderで使用する環境変数

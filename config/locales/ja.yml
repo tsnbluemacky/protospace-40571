@@ -1,0 +1,98 @@
+ja:
+  hello: "こんにちは世界"
+
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        profile: プロフィール
+        occupation: 所属
+        position: 役職
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+
+  errors:
+    messages:
+      blank: "を入力してください"
+      too_short: "は%{count}文字以上で入力してください"
+      too_long: "は%{count}文字以下で入力してください"
+      not_found: "が見つかりません"
+      already_confirmed: "は既に確認済みです。サインインを試みてください"
+      confirmation_period_expired: "は%{period}以内に確認する必要があります。新しいものをリクエストしてください"
+      expired: "の有効期限が切れています。新しいものをリクエストしてください"
+      not_locked: "はロックされていません"
+      not_saved:
+        one: "%{resource}の保存に失敗しました: 1つのエラー"
+        other: "%{resource}の保存に失敗しました: %{count}つのエラー"
+      confirmation: "とパスワードの入力が一致していません"  # 修正
+      taken: "は既に使用されています"  # 追加
+
+  devise:
+    confirmations:
+      confirmed: "メールアドレスが正常に確認されました。"
+      send_instructions: "数分以内にメールアドレスの確認方法を記載したメールが届きます。"
+      send_paranoid_instructions: "メールアドレスが存在する場合、数分以内にメールアドレスの確認方法を記載したメールが届きます。"
+    failure:
+      already_authenticated: "すでにログインしています。"
+      inactive: "アカウントが有効化されていません。"
+      invalid: "%{authentication_keys}またはパスワードが違います。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "アカウントがロックされるまであと1回です。"
+      not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
+      timeout: "セッションがタイムアウトしました。再度ログインしてください。"
+      unauthenticated: "ログインするか、新規登録してください。"
+      unconfirmed: "メールアドレスの確認が必要です。"
+    mailer:
+      confirmation_instructions:
+        subject: "メールアドレス確認の手順"
+      reset_password_instructions:
+        subject: "パスワードリセットの手順"
+      unlock_instructions:
+        subject: "アカウントロック解除の手順"
+      email_changed:
+        subject: "メールアドレスの変更"
+      password_change:
+        subject: "パスワードの変更"
+    omniauth_callbacks:
+      failure: "%{kind}アカウントの認証に失敗しました: \"%{reason}\"。"
+      success: "%{kind}アカウントの認証に成功しました。"
+    passwords:
+      no_token: "パスワードリセットのメールからアクセスしてください。このページに直接アクセスすることはできません。"
+      send_instructions: "数分以内にパスワードリセットの手順を記載したメールが届きます。"
+      send_paranoid_instructions: "メールアドレスが存在する場合、数分以内にパスワードリセットの手順を記載したメールが届きます。"
+      updated: "パスワードが正常に変更されました。ログインしました。"
+      updated_not_active: "パスワードが正常に変更されました。"
+    registrations:
+      destroyed: "アカウントが正常に削除されました。またのご利用をお待ちしております。"
+      signed_up: "ようこそ！正常に登録されました。"
+      signed_up_but_inactive: "正常に登録されましたが、アカウントが有効化されていません。"
+      signed_up_but_locked: "正常に登録されましたが、アカウントがロックされています。"
+      signed_up_but_unconfirmed: "確認リンクがメールアドレスに送信されました。リンクをクリックしてアカウントを有効化してください。"
+      update_needs_confirmation: "アカウント情報を正常に更新しましたが、新しいメールアドレスを確認する必要があります。確認メールをチェックして、リンクをクリックしてください。"
+      updated: "アカウント情報を正常に更新しました。"
+      updated_but_not_signed_in: "アカウント情報を正常に更新しましたが、パスワードが変更されたため再度ログインが必要です。"
+      new:
+        sign_up_button: "サインアップ"
+    sessions:
+      signed_in: "ログインに成功しました。"
+      signed_out: "ログアウトに成功しました。"
+      already_signed_out: "既にログアウトしています。"
+      new:
+        log_in: "ログイン"
+        email: "メールアドレス"
+        password: "パスワード"
+        remember_me: "ログインを保持"
+        log_in_button: "ログイン"
+        sign_up: "新規登録"
+        forgot_password: "パスワードをお忘れですか？"
+    unlocks:
+      send_instructions: "数分以内にアカウントロック解除の手順を記載したメールが届きます。"
+      send_paranoid_instructions: "アカウントが存在する場合、数分以内にアカウントロック解除の手順を記載したメールが届きます。"
+      unlocked: "アカウントのロックが正常に解除されました。ログインしてください。"
+  views:
+    links:
+      sign_up: "新規登録"
+      forgot_your_password: "パスワードをお忘れですか？"

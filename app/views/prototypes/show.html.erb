@@ -1,0 +1,57 @@
+<!-- app/views/prototypes/show.html.erb -->
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <div class="prototype__header">
+        <h1 class="prototype__title"><%= @prototype.title %></h1>
+        <% if user_signed_in? && @prototype.user == current_user %>
+          <div class="prototype__manage">
+            <div class="prototype__btn">
+              <%= link_to '編集', edit_prototype_path(@prototype), class: 'prototype__link' %>
+            </div>
+            <div class="prototype__btn">
+              <%= link_to '削除', prototype_path(@prototype), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'prototype__link' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <p class="prototype__author">by <%= link_to @prototype.user.name, user_path(@prototype.user) %></p>
+      <div class="prototype__image">
+        <% if @prototype.image.attached? %>
+          <%= image_tag @prototype.image %>
+        <% end %>
+      </div>
+      <p class="prototype__catch_copy"><%= @prototype.catch_copy %></p>
+      <p class="prototype__concept"><%= @prototype.concept %></p>
+
+      <!-- コメント一覧 -->
+      <div class="comments">
+        <h2>コメント</h2>
+        <% @comments.each do |comment| %>
+          <div class="comment">
+            <p><strong><%= link_to comment.user.name, user_path(comment.user) %>:</strong> <%= comment.content %></p>
+            <% if user_signed_in? && comment.user == current_user %>
+              <%= link_to '削除', prototype_comment_path(@prototype, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- コメント投稿フォーム -->
+      <% if user_signed_in? %>
+        <div class="comment-form">
+          <%= form_with(model: [ @prototype, @comment ], local: true, html: { class: 'form-inline new-comment-form' } ) do |form| %>
+            <div class="form-group">
+              <%= form.text_area :content, placeholder: "コメント", rows: 3, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= form.submit 'コメント', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <p>コメントを投稿するにはログインが必要です。</p>
+      <% end %>
+    </div>
+  </div>
+</main>

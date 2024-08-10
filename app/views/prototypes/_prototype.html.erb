@@ -1,0 +1,13 @@
+<!-- app/views/prototypes/_prototype.html.erb -->
+<div class="card">
+  <div class="card__img">
+    <% if prototype.image.attached? %>
+      <%= image_tag prototype.image %>
+    <% else %>
+      <img src="path/to/placeholder-image.png" alt="Placeholder">
+    <% end %>
+  </div>
+  <div class="card__body">
+    <p class="card__title"><%= link_to prototype.title, prototype_path(prototype) %></p>
+  </div>
+</div>

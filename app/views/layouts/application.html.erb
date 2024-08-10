@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Protospace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="inner">
+        <div class="nav">
+          <div class="logo">
+            <%= link_to root_path do %>
+              <img src="<%= asset_path 'logo.png' %>" alt="Proto Space Logo">
+            <% end %>
+          </div>
+          <div class="nav__links"> <!-- ここに nav__links クラスを追加 -->
+            <% if user_signed_in? %>
+              <%= link_to 'New Proto', new_prototype_path, class: 'nav__btn' %>
+              <%= form_with url: destroy_user_session_path, method: :delete, local: true, class: 'inline-form' do %>
+                <%= submit_tag 'ログアウト', class: 'nav__btn' %>
+              <% end %>
+            <% else %>
+              <%= link_to 'ログイン', new_user_session_path, class: 'nav__btn' %>
+              <%= link_to '新規登録', new_user_registration_path, class: 'nav__btn' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="copyright">
+        <p>Copyright © PROTO SPACE All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

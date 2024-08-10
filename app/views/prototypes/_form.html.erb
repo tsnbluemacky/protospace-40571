@@ -1,0 +1,41 @@
+<%= form_with(model: prototype, local: true) do |form| %>
+  <% if prototype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prototype.errors.count, "error") %> 件のエラーが発生しました:</h2>
+      <ul>
+        <% prototype.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title, placeholder: "Title", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :catch_copy, "キャッチコピー" %>
+    <%= form.text_field :catch_copy, placeholder: "Catch Copy", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concept, "コンセプト" %>
+    <%= form.text_field :concept, placeholder: "Concept", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, "説明" %>
+    <%= form.text_area :description, placeholder: "Description", rows: "10", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, "画像" %>
+    <%= form.file_field :image, class: "form-control-file" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "SEND", class: "btn btn-primary" %>
+  </div>
+<% end %>
