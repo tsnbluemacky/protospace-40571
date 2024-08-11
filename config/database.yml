@@ -8,13 +8,13 @@ default: &default
 
 development:
   <<: *default
-  database: protospace_40571_development
+  database: protospace_40571_development # ファイル名
 
 test:
   <<: *default
-  database: protospace_40571_test
+  database: protospace_40571_test # ファイル名その２
 
 production:
   <<: *default
-  database: protospace_40571_production  # データベース名を指定
+  database: protospace_40571_production  # データベース名を指定してある
   url: <%= ENV['DATABASE_URL'] %>        # Renderで使用する環境変数
