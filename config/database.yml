@@ -16,4 +16,5 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>  # Renderで使用する環境変数
+  database: protospace_40571_production  # データベース名を指定
+  url: <%= ENV['DATABASE_URL'] %>        # Renderで使用する環境変数
