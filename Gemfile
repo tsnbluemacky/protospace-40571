@@ -14,11 +14,11 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'devise'
 gem 'turbo-rails'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'mini_magick'
-  gem 'image_processing', '~> 1.2'
 end
 
 group :development do
