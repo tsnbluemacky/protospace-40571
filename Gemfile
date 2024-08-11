@@ -5,7 +5,6 @@ ruby "3.2.0"
 
 gem "rails", "~> 7.0.0"
 gem "sprockets-rails"
-# gem "mysql2", "~> 0.5"  # MySQL用のgemを削除
 gem "pg"  # PostgreSQL用のgemを追加
 gem "puma", "~> 5.0"
 gem "jbuilder"
