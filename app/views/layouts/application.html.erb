@@ -16,8 +16,9 @@
               <img src="<%= asset_path 'logo.png' %>" alt="Proto Space Logo">
             <% end %>
           </div>
-          <div class="nav__links"> <!-- ここに nav__links クラスを追加 -->
+          <div class="nav__links">
             <% if user_signed_in? %>
+              <p>こんにちは、<%= current_user.name %>さん</p>
               <%= link_to 'New Proto', new_prototype_path, class: 'nav__btn' %>
               <%= form_with url: destroy_user_session_path, method: :delete, local: true, class: 'inline-form' do %>
                 <%= submit_tag 'ログアウト', class: 'nav__btn' %>
