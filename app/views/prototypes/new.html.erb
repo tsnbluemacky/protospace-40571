@@ -1,6 +1,7 @@
 <main class="main">
   <div class="inner">
-    <h1 class="page-heading">新規プロトタイプ投稿</h1>
+    <div class="form__wrapper">
+    <h2 class="page-heading">新規プロトタイプ投稿</h2>
     
     <% if @prototype.errors.any? %>
       <div class="error_messages">
@@ -13,26 +14,31 @@
       </div>
     <% end %>
 
-    <%= form_with model: @prototype, local: true, html: { multipart: true, class: 'new-prototype-form' } do |f| %>
-      <div class="form-group">
+    <%= form_with model: @prototype, local: true do |f| %>
+      <div class="field">
         <%= f.label :title, 'プロトタイプの名称' %>
-        <%= f.text_field :title, class: 'form-control', placeholder: 'プロトタイプの名称' %>
+        <br />
+        <%= f.text_field :title %>
       </div>
-      <div class="form-group">
+      <div class="field">
         <%= f.label :catch_copy, 'キャッチコピー' %>
+        <br />
         <%= f.text_field :catch_copy, class: 'form-control', placeholder: 'キャッチコピー' %>
       </div>
-      <div class="form-group">
+      <div class="field">
         <%= f.label :concept, 'コンセプト' %>
+        <br />
         <%= f.text_area :concept, class: 'form-control', placeholder: 'コンセプト' %>
       </div>
-      <div class="form-group">
+      <div class="field">
         <%= f.label :image, 'プロトタイプの画像' %>
+        <br />
         <%= f.file_field :image, class: 'form-control-file' %>
       </div>
-      <div class="form-group">
+      <div class="field">
         <%= f.submit '保存する', class: 'btn btn-primary' %>
       </div>
     <% end %>
+    </div> 
   </div>
 </main>
