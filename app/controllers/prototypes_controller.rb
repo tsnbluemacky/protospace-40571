@@ -41,8 +41,10 @@ class PrototypesController < ApplicationController
   def destroy
     logger.debug "Attempting to delete prototype with id: #{@prototype.id}"
     if @prototype.destroy
+      logger.debug "Prototype deleted successfully"
       flash[:notice] = 'プロトタイプが削除されました。'
     else
+      logger.debug "Failed to delete prototype"
       flash[:alert] = 'プロトタイプの削除に失敗しました。'
     end
     redirect_to root_path
@@ -58,7 +60,7 @@ class PrototypesController < ApplicationController
   end
 
   def prototype_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, :description, :image)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image)
   end
 
   def correct_user
